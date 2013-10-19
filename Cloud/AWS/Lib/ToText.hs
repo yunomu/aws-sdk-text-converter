@@ -5,10 +5,10 @@ module Cloud.AWS.Lib.ToText
     ) where
 
 import Data.ByteString (ByteString)
-import qualified Data.ByteString.Char8 as BC
 import Data.IP (IPv4, AddrRange)
 import Data.Text (Text)
 import qualified Data.Text as T
+import qualified Data.Text.Encoding as T
 import Data.Time (UTCTime)
 import qualified Data.Time as Time
 import System.Locale (defaultTimeLocale)
@@ -22,7 +22,7 @@ instance ToText Text where
     toText t = t
 
 instance ToText ByteString where
-    toText = T.pack . BC.unpack
+    toText = T.decodeUtf8
 
 instance ToText Bool where
     toText True  = "true"
