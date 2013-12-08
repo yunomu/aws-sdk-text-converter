@@ -90,6 +90,10 @@ instance FromText UTCTime where
       where
         fmt = "%FT%T"
 
+instance FromText () where
+    fromText _ = return ()
+    fromNamedText _ = maybe (return ()) fromText
+
 deriveFromText :: String -> [String] -> DecsQ
 deriveFromText dstr strs = do
     ctrs <- map (\(NormalC name _) -> name) <$> cons

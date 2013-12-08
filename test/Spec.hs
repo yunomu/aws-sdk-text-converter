@@ -3,6 +3,7 @@
 
 import Control.Applicative
 import Data.IP
+import Data.Text
 import Data.Time
 import Test.Hspec
 import Test.HUnit
@@ -30,11 +31,17 @@ instance Arbitrary IPv4 where
 instance Arbitrary (AddrRange IPv4) where
     arbitrary = makeAddrRange <$> arbitrary <*> choose (0, 32)
 
+instance Arbitrary Text where
+    arbitrary = pack <$> arbitrary
+
 prop_mclass :: (Eq a, FromText a, ToText a) => a -> Bool
 prop_mclass a = fromText (toText a) == Just (Just a)
 
 testNothing :: IO ()
 testNothing = (fromText "" :: Maybe Int) @=? Nothing
+
+testConvertNothingToUnit :: IO ()
+testConvertNothingToUnit = fromNamedText "unit" Nothing @=? Just ()
 
 data A = B | C deriving (Eq, Show)
 
@@ -60,3 +67,5 @@ main = hspec $ do
         prop "Maybe Int" (prop_mclass :: Int -> Bool)
         it "convert Nothing" testNothing
         prop "deriveFromText" (prop_class :: A -> Bool)
+        prop "Unit" (\t -> fromText t == Just ())
+        it "convert Nothing to Unit" testConvertNothingToUnit
