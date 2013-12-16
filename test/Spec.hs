@@ -45,10 +45,7 @@ testConvertNothingToUnit = fromNamedText "unit" Nothing @=? Just ()
 
 data A = B | C deriving (Eq, Show)
 
-instance ToText A where
-    toText B = "ab"
-    toText C = "ac"
-
+deriveToText "A" ["ab", "ac"]
 deriveFromText "A" ["ab", "ac"]
 
 instance Arbitrary A where
@@ -66,6 +63,6 @@ main = hspec $ do
         prop "AddrRange IPv4" (prop_class :: AddrRange IPv4 -> Bool)
         prop "Maybe Int" (prop_mclass :: Int -> Bool)
         it "convert Nothing" testNothing
-        prop "deriveFromText" (prop_class :: A -> Bool)
+        prop "deriveFromText/deriveToText" (prop_class :: A -> Bool)
         prop "Unit" (\t -> fromText t == Just ())
         it "convert Nothing to Unit" testConvertNothingToUnit

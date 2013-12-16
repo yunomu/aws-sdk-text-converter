@@ -1,5 +1,5 @@
 name:                aws-sdk-text-converter
-version:             0.2.0.0
+version:             0.3
 synopsis:            The text converter for aws-sdk.
 description:         The text converter for aws-sdk.
 license:             BSD3
@@ -14,6 +14,10 @@ cabal-version:       >=1.10
 library
   exposed-modules:     Cloud.AWS.Lib.FromText
                      , Cloud.AWS.Lib.ToText
+  other-modules:       Cloud.AWS.Lib.FromText.Class
+                     , Cloud.AWS.Lib.FromText.TH
+                     , Cloud.AWS.Lib.ToText.Class
+                     , Cloud.AWS.Lib.ToText.TH
   ghc-options:         -Wall -fno-warn-unused-do-bind
   default-extensions:  OverloadedStrings
   build-depends:       base == 4.*
