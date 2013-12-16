@@ -14,6 +14,9 @@ cabal-version:       >=1.10
 library
   exposed-modules:     Cloud.AWS.Lib.FromText
                      , Cloud.AWS.Lib.ToText
+  other-modules:       Cloud.AWS.Lib.FromText.Class
+                     , Cloud.AWS.Lib.FromText.TH
+                     , Cloud.AWS.Lib.ToText.Class
   ghc-options:         -Wall -fno-warn-unused-do-bind
   default-extensions:  OverloadedStrings
   build-depends:       base == 4.*
