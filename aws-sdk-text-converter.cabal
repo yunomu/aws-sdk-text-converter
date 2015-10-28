@@ -1,10 +1,10 @@
 name:                aws-sdk-text-converter
-version:             0.3
+version:             0.4
 synopsis:            The text converter for aws-sdk.
 description:         The text converter for aws-sdk.
 license:             BSD3
 license-file:        LICENSE
-homepage:            https://github.com/worksap-ate/aws-sdk-text-converter
+homepage:            https://github.com/yunomu/aws-sdk-text-converter
 author:              Yusuke Nomura <yunomu@gmail.com>
 maintainer:          Yusuke Nomura <yunomu@gmail.com>
 category:            Web

@@ -3,7 +3,6 @@
 module Cloud.AWS.Lib.FromText.TH
     where
 
-import Control.Applicative ((<$>))
 import Language.Haskell.TH
 
 import Cloud.AWS.Lib.FromText.Class (FromText(..))

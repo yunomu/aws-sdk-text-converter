@@ -3,7 +3,6 @@
 module Cloud.AWS.Lib.FromText.Class
     where
 
-import Control.Applicative ((<$>))
 import Control.Monad
 import Data.IP (IPv4, AddrRange)
 import Data.Monoid ((<>))
