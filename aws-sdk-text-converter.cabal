@@ -10,6 +10,7 @@ maintainer:          Yusuke Nomura <yunomu@gmail.com>
 category:            Web
 build-type:          Simple
 cabal-version:       >=1.10
+tested-with:         GHC == 7.8.4, GHC == 7.10.1, GHC == 7.10.2
 
 library
   exposed-modules:     Cloud.AWS.Lib.FromText
@@ -50,3 +51,7 @@ test-suite spec
                      , hspec
                      , QuickCheck
                      , HUnit
+
+source-repository head
+  type:     git
+  location: http://github.com/yunomu/aws-sdk-text-converter.git

@@ -4,6 +4,7 @@ module Cloud.AWS.Lib.ToText.Class
     ( ToText (toText)
     ) where
 
+import Control.Applicative ((<$>))
 import Data.ByteString (ByteString)
 import Data.IP (IPv4, AddrRange)
 import Data.Text (Text)
