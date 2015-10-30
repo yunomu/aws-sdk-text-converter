@@ -1,5 +1,5 @@
 name:                aws-sdk-text-converter
-version:             0.4
+version:             0.4.1
 synopsis:            The text converter for aws-sdk.
 description:         The text converter for aws-sdk.
 license:             BSD3
